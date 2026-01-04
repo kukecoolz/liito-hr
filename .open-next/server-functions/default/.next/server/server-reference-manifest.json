@@ -1,0 +1,73 @@
+{
+  "node": {},
+  "edge": {
+    "406024627dad0399e5c5c3cff1f3c7c7214aadea2b": {
+      "workers": {
+        "app/page": {
+          "moduleId": 12995,
+          "async": false,
+          "exportedName": "searchEmployees",
+          "filename": "src/app/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "rsc"
+      },
+      "filename": "src/app/actions.ts",
+      "exportedName": "searchEmployees"
+    },
+    "40eff5ad2d2c5b079bb6f26e681a5b85cf1271695f": {
+      "workers": {
+        "app/add/page": {
+          "moduleId": 75382,
+          "async": false,
+          "exportedName": "addEmployee",
+          "filename": "src/app/actions.ts"
+        },
+        "app/page": {
+          "moduleId": 12995,
+          "async": false,
+          "exportedName": "addEmployee",
+          "filename": "src/app/actions.ts"
+        }
+      },
+      "layer": {
+        "app/add/page": "action-browser",
+        "app/page": "rsc"
+      },
+      "filename": "src/app/actions.ts",
+      "exportedName": "addEmployee"
+    },
+    "60048d560ca3662bafd831b628b4bcee3ff4b3f418": {
+      "workers": {
+        "app/page": {
+          "moduleId": 12995,
+          "async": false,
+          "exportedName": "updateEmployee",
+          "filename": "src/app/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      },
+      "filename": "src/app/actions.ts",
+      "exportedName": "updateEmployee"
+    },
+    "60f9e3264b6b91a9855c88d4ddff1cf5a15db241da": {
+      "workers": {
+        "app/page": {
+          "moduleId": 12995,
+          "async": false,
+          "exportedName": "updatePassword",
+          "filename": "src/app/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "rsc"
+      },
+      "filename": "src/app/actions.ts",
+      "exportedName": "updatePassword"
+    }
+  },
+  "encryptionKey": "XO4GkVxHPZ1Edm84EnYb+JkC6vD/r4gwXehYAvEJIqc="
+}
