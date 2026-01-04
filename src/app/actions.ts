@@ -1,13 +1,13 @@
 'use server';
 
-import { getRequestContext } from '@cloudflare/next-on-pages';
-
 import { Employee } from '@/types';
+import { D1Database } from '@cloudflare/workers-types';
+
+const getDB = () => (process.env as unknown as { DB: D1Database }).DB;
 
 export async function addEmployee(formData: FormData) {
   try {
-    const { env } = getRequestContext();
-    const db = env.DB;
+    const db = getDB();
 
     if (!db) {
       return { success: false, error: 'Database binding missing' };
@@ -48,8 +48,8 @@ export async function addEmployee(formData: FormData) {
 }
 
 export async function searchEmployees(query: string = '') {
-  const { env } = getRequestContext();
-  const db = env.DB;
+  const db = getDB();
+  if (!db) return [];
 
   let stmt;
   if (!query) {
@@ -64,9 +64,7 @@ export async function searchEmployees(query: string = '') {
 
 export async function updateEmployee(id: number, formData: FormData) {
   try {
-    console.log('updateEmployee started for ID:', id);
-    const { env } = getRequestContext();
-    const db = env.DB;
+    const db = getDB();
 
     if (!db) {
       console.error('DB binding missing in updateEmployee');
@@ -101,7 +99,6 @@ export async function updateEmployee(id: number, formData: FormData) {
       id
     ).run();
 
-    console.log('updateEmployee database update successful');
     return { success: true };
   } catch (error) {
     console.error('Failed to update employee:', error);
@@ -109,11 +106,9 @@ export async function updateEmployee(id: number, formData: FormData) {
   }
 }
 
-
 export async function updatePassword(currentPass: string, newPass: string) {
   try {
-    const { env } = getRequestContext();
-    const db = env.DB;
+    const db = getDB();
 
     if (!db) return { success: false, error: 'Database binding missing' };
 

@@ -12,14 +12,14 @@ Cloudflare Pages works best with a GitHub repository.
 4.  Select your repository.
 
 ### 2. Configure Build Settings (IMPORTANT) ⚠️
-The error you are seeing (**"Workers-specific command"**) is because you have something in the "Deployment command" box. **Pages does NOT need a deployment command.**
+We have switched to **OpenNext** for a more reliable deployment.
 
 **Go to your Cloudflare Dashboard and set these EXACTLY:**
 
 | Field | Set to... |
 | :--- | :--- |
 | **Build command** | `npm run build` |
-| **Build output directory** | `.vercel/output/static` |
+| **Build output directory** | `.open-next` |
 | **Deployment command** | **DELETE EVERYTHING - LEAVE EMPTY** ❌ |
 
 > [!CAUTION]
@@ -27,7 +27,7 @@ The error you are seeing (**"Workers-specific command"**) is because you have so
 > 1. Click **Settings** (top tab) > **Build & deployments**.
 > 2. Click **Configure methods** (or Edit).
 > 3. Look for the box labeled **"Deployment command"**.
-> 4. It likely has `npx wrangler deploy` in it. **DELETE IT COMPLETELY.**
+> 4. It likely has `npx wrangler deploy` or some other text in it. **DELETE IT COMPLETELY.**
 > 5. Make sure the box is **100% EMPTY** (no text, no spaces).
 > 6. Save and click **Retry deployment**.
 
