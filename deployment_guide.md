@@ -12,17 +12,19 @@ Cloudflare Pages works best with a GitHub repository.
 4.  Select your repository.
 
 ### 2. Configure Build Settings
-During the setup, use these exact settings:
-- **Project Name**: `littohr`
-- **Framework Preset**: `Next.js`
-- **Build Command**: `npx @cloudflare/next-on-pages@1`
+Inside the Cloudflare Pages dashboard, you must set these **TWO** fields specifically:
+
+1.  **Build command**: `npm run build`
+2.  **Deployment command**: **(LEAVE THIS EMPTY)** ⛔
+    - *If there is anything in this box, click it and press Backspace until it is totally empty.*
+
+**Other settings:**
 - **Build Output Directory**: `.vercel/output/static`
-- **Deployment Command**: **(Leave this EMPTY)** ⚠️
 - **Environment Variable**: 
   - Set `NODE_VERSION` to `18` or higher.
 
 > [!IMPORTANT]
-> Because we are using Next.js 16 (Beta), I have added an `.npmrc` file to your project. This is required for Cloudflare to install dependencies without errors. Make sure you push this file to GitHub!
+> The error you saw earlier happened because the **Deployment command** was not empty. Delete everything in that box!
 
 ### 3. Create the Database (D1)
 If you haven't created your database in Cloudflare yet:
