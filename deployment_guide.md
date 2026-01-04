@@ -12,11 +12,12 @@ Cloudflare Pages works best with a GitHub repository.
 4.  Select your repository.
 
 ### 2. Configure Build Settings
-Inside the Cloudflare Pages dashboard, you must set these **TWO** fields specifically:
+Inside the Cloudflare Pages dashboard, you must set these **TWO** fields specifically to avoid a "Recursive Error":
 
-1.  **Build command**: `npm run build`
+1.  **Build command**: `npx @cloudflare/next-on-pages@1` ⚠️
+    - *Do NOT use `npm run build` here.*
 2.  **Deployment command**: **(LEAVE THIS EMPTY)** ⛔
-    - *If there is anything in this box, click it and press Backspace until it is totally empty.*
+    - *If there is anything in this box, delete it entirely.*
 
 **Other settings:**
 - **Build Output Directory**: `.vercel/output/static`
