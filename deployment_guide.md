@@ -21,8 +21,8 @@ During the setup, use these exact settings:
 - **Environment Variable**: 
   - Set `NODE_VERSION` to `18` or higher.
 
-> [!CAUTION]
-> If you see a "Deployment command" field, do not put `npx wrangler deploy` there. Cloudflare Pages handles the deployment automatically from the output directory.
+> [!IMPORTANT]
+> Because we are using Next.js 16 (Beta), I have added an `.npmrc` file to your project. This is required for Cloudflare to install dependencies without errors. Make sure you push this file to GitHub!
 
 ### 3. Create the Database (D1)
 If you haven't created your database in Cloudflare yet:
