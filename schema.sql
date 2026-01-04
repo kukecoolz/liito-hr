@@ -14,3 +14,11 @@ CREATE TABLE IF NOT EXISTS employees (
     image_data TEXT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE IF NOT EXISTS settings (
+    key TEXT PRIMARY KEY,
+    value TEXT NOT NULL
+);
+
+-- Initialize default password if not exists
+INSERT OR IGNORE INTO settings (key, value) VALUES ('admin_password', 'admin123');

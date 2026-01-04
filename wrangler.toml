@@ -6,4 +6,4 @@ pages_build_output_dir = ".vercel/output/static"
 [[d1_databases]]
 binding = "DB"
 database_name = "employee-db"
-database_id = "local-db-id" # Placeholder for local dev
+database_id = "e90ef474-abd7-414f-bf10-2e3c22e987d2" # Placeholder for local dev
