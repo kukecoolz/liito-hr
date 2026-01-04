@@ -11,21 +11,25 @@ Cloudflare Pages works best with a GitHub repository.
 3.  Click **Workers & Pages** > **Create application** > **Pages** > **Connect to Git**.
 4.  Select your repository.
 
-### 2. Configure Build Settings
-Inside the Cloudflare Pages dashboard, you must set these **TWO** fields specifically to avoid a "Recursive Error":
+### 2. Configure Build Settings (IMPORTANT) ⚠️
+The error you are seeing (**"Workers-specific command"**) is because you have something in the "Deployment command" box. **Pages does NOT need a deployment command.**
 
-1.  **Build command**: `npx @cloudflare/next-on-pages@1` ⚠️
-    - *Do NOT use `npm run build` here.*
-2.  **Deployment command**: **(LEAVE THIS EMPTY)** ⛔
-    - *If there is anything in this box, delete it entirely.*
+**Go to your Cloudflare Dashboard and set these EXACTLY:**
 
-**Other settings:**
-- **Build Output Directory**: `.vercel/output/static`
-- **Environment Variable**: 
-  - Set `NODE_VERSION` to `18` or higher.
+| Field | Set to... |
+| :--- | :--- |
+| **Build command** | `npm run build` |
+| **Build output directory** | `.vercel/output/static` |
+| **Deployment command** | **DELETE EVERYTHING - LEAVE EMPTY** ❌ |
 
-> [!IMPORTANT]
-> The error you saw earlier happened because the **Deployment command** was not empty. Delete everything in that box!
+> [!CAUTION]
+> **CRITICAL FIX:**
+> 1. Click **Settings** (top tab) > **Build & deployments**.
+> 2. Click **Configure methods** (or Edit).
+> 3. Look for the box labeled **"Deployment command"**.
+> 4. It likely has `npx wrangler deploy` in it. **DELETE IT COMPLETELY.**
+> 5. Make sure the box is **100% EMPTY** (no text, no spaces).
+> 6. Save and click **Retry deployment**.
 
 ### 3. Create the Database (D1)
 If you haven't created your database in Cloudflare yet:
